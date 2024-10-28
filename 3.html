@@ -1,0 +1,321 @@
+<html lang="en"></html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Devotional Prayer Cards made by OONA. actually real. actually art." />
+        <meta name="artist" content="OONA" />
+        <meta name="dev" content="yungwknd" />
+        <title>Minting Prayer: Grant Me</title>
+        <style>
+            html{
+                margin:auto !important;
+            }
+            
+            body, html {
+                background-color: transparent;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            
+            h1 {
+                text-align: center;
+            }
+            #oona {
+                text-align: center;
+                position: relative;
+                margin: 0 auto;
+                cursor: pointer;
+            }
+            #oona {
+                transition: -webkit-transform 1s ease-in;
+                -webkit-transform-style: preserve-3d;
+            }
+            #oona div {
+                position: absolute;
+                max-height: 100%;
+                -webkit-backface-visibility: hidden;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+            .side-a {
+                z-index: 100;
+            }
+            .side-b {
+                -webkit-transform: rotateY(180deg);
+                transform-origin: center 50vh;
+            }
+            #oona.flip {
+                -webkit-animation: flipper 1s ease-in forwards;
+                -moz-animation: flipper 1s ease-in forwards;
+                -o-animation: flipper 1s ease-in forwards;
+                animation: flipper 1s ease-in forwards;
+                transform-origin: center 50vh;
+            }
+            #oona.flip2 {
+                -webkit-animation: flipper2 1s ease-in forwards;
+                -moz-animation: flipper2 1s ease-in forwards;
+                -o-animation: flipper2 1s ease-in forwards;
+                animation: flipper2 1s ease-in forwards;
+                transform-origin: center 50vh;
+            }
+            #oona.introflip {
+                -webkit-animation: introFlipper 0.5s ease-in-out forwards;
+                -moz-animation: introFlipper 0.5s ease-in-out forwards;
+                -o-animation: introFlipper 0.5s ease-in-out forwards;
+                animation: introFlipper 0.5s ease-in-out forwards;
+                transform-origin: center 50vh;
+            }
+            @-webkit-keyframes flipper {
+                from {
+                    -webkit-transform: rotateY(0deg);
+                    -moz-transform: rotateY(0deg);
+                    transform: rotateY(0deg);
+                }
+                to {
+                    -webkit-transform: rotateY(180deg);
+                    -moz-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+                }
+            }
+            @-webkit-keyframes flipper2 {
+                from {
+                    -webkit-transform: rotateY(180deg);
+                    -moz-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+                }
+                to {
+                    -webkit-transform: rotateY(0deg);
+                    -moz-transform: rotateY(0deg);
+                    transform: rotateY(0deg);
+                }
+            }
+            @-webkit-keyframes introFlipper {
+                from {
+                    -webkit-transform: rotateY(0);
+                    -moz-transform: rotateY(0);
+                    transform: rotateY(0);
+                }
+                to {
+                    -webkit-transform: rotateY(360deg);
+                    -moz-transform: rotateY(360deg);
+                    transform: rotateY(360deg);
+                }
+            }
+            .d-none {
+                display: none;
+            }
+            #cover {
+                height: 200%;
+                width: 110%;
+                background: #ffffff;
+                z-index: 1000;
+                position: fixed;
+            }
+
+            .lds-dual-ring-outer {
+                z-index: 10000;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 25px;
+                height: 25px;
+                border: 2px solid black;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .lds-dual-ring {
+                z-index: 10001;
+                width: 5px;
+                height: 5px;
+                background-color: black;
+                border: 1px solid black;
+                border-radius: 50%;
+                animation: pulse 5s infinite;
+            }
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(4);
+                }
+            }
+        </style>
+    </head>
+    <script src="https://wmeryi5hnu43uokwdmt343urinmzwqwbm2ubwkzmdujlodtdq7la.arweave.net/swkcI6dtObo5Vhsnvm6RQ1mbQsFmqBsrLB0Stw5jh9Y" crossorigin="anonymous"></script>
+    <script>
+        let isLoaded1 = false;
+        let isLoaded2 = false;
+        const prepareImageFlip = function() {
+            setTimeout(function () {
+                $("#oona").addClass("introflip");
+                $("img").click((el) => {
+                    if (el.currentTarget.id === 'image1') {
+                        $("#oona").removeClass();
+                        $("#oona").addClass("flip");
+                    }
+                    if (el.currentTarget.id === 'image2') {
+                        $("#oona").removeClass();
+                        $("#oona").addClass("flip2");
+                    }
+
+                })
+                setTimeout(function () {
+                    $("#cover").remove();
+                    $(".lds-dual-ring").remove();
+                    $(".lds-dual-ring-outer").remove();
+                }, 2000);
+                $("html").css("width", $("img").css("width"));
+                $("html").css("height", $("img").css("height"));
+            }, 500);
+        }
+        function loaded1() {
+            isLoaded1 = true;
+            if (isLoaded1 && isLoaded2) {
+                prepareImageFlip();
+            }
+        }
+        function loaded2() {
+            isLoaded2 = true;
+            if (isLoaded1 && isLoaded2) {
+                prepareImageFlip();
+            }
+        }
+
+
+        function getImageFromVariation() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const variation = parseInt(urlParams.get('variationId')) || 0;
+
+            const ALL_IMAGES = [
+                '9WbwCNJjS5r-BI7kPhfOjD7kDgTq_F4-UnYT5bdkFkI',
+                'u5x_5krJc0Uq399TVP2kLnXK_2oKUEUshD5lNKq7DVk',
+                'xy6wctvwtrRbLJjrun8Mi5-hqg82YXWBrz1AvBfZUTY',
+                'a1fkvMSAfWVWYNWsBzKND6bidRYhHg7bo2_ZdJMHw0w',
+                'QLfzekBQG4zN2SSKrhQwRq_3e3hnhoSJ5ucDwz_2u5c',
+                'bO3xBbSLwnTQzJVSiajLwvwEUXw9qOFlyhAeH_taYJo',
+                'nCoJSBQ3QFi_ySevLaNZ2v2UVpRcI1hWm5wMcarDvog',
+                '-57pRZqg6bUWbLme-P_T_btOsH398FI29F9ABuKw7Bo',
+                '4kpGYg_ABmuGjiYPmjSUZwWSG_J0UArEENugdXRVtN0',
+                'n4uzl7FDI34qvSC7RgbxYer2eRUdZ1hS1ZgxqbFOb5w',
+                'LAq3PHCnmPU3aIbFd_NnIKMxoPS54Ytuy6z6PvSyO3I',
+                'mctEawsj4x0gd4bwWly64PN_s6ZaKQsktXsId-PiGyg',
+                '0l4QbKKJ3MbmEKOpC6c5sdHZnsllnDZNl7ISo72SAnE',
+                '3RkFAxh-KG7Qf8O1-y4ZV87b2X7vy6rK8INUoMvv9e4',
+                'c4-D6nEWpfzpYYoXVYPuMetXTrldBIPi-VzJBlmRynk',
+                'aVNUVNj3NVc7FATUVS7TiAnEsHicRB2omJdSleQXKAU',
+                'EVRXpEJc_RlEUEtCFgxhs85_6EapjaXNKwkRCqi6zTY',
+                'E-rD82X6k5_rGGnUpyIYvppgpWTC2BQ42rKwylUBtv8',
+                'tR9Wiwrg1aIuoNr_BDdKkmp9fHmvsR0jbJ_GuGU99Rc',
+                'hVqaODbsjv8Bi6LSZJvERYUVqTzwBIeVq_ufnp6dFQc',
+                'lfeVh1p5G2_W7mV8RAeUqDn9GP5E7662GJXriY4hQyI',
+                '9FnqfrhLmXrYpBkn0Ifln15VI9Obn2AJnJ-_hb6mws0',
+                'J9ifdBZYVlnBV1dqcMZS4Jin1keG-qwp9lCmcnupRuc',
+                'uVyuYhxUoVkP9ebU_zLWiHqpwhgRsio3R1k8zT_2JJc',
+                'h-B09_KJXmmTcWY7HvXYFcimOAR3ddyxfJ4QKHYKahA',
+                '-ha_mDwLeFZBmO7LxftHubR3BQXmAtsoxENHi51y5dk',
+                'CtMVkImuBBy1wJnSfC63himiWnwsb01FLpZzmSviixo',
+                'Pe5V63vmCUmVIJzJNgZ-poWoJLfjB4__dqO3FoRTaKY',
+                'P13hgc-_nZ7eDFm5vkGtyksFr-k137l9p-iNcbe_y3I',
+                '6lIqocA7mHSqmkI_MfyRH5EAYYlR90qM419RRgcCN_U',
+                'Kwf4Pj3h0H_lbiQEJGW5eZu_w1FqJN5mI3BqYg1r4qI',
+                'yXH6vjwDZB7xmva84I3oyO0Eb593mUKnK6rGo9kSvbw',
+                'L7YHilLxW1xS2ME0DC5XrhO6GYF-t_jTg4vPRGI4_GI',
+                'sFWMIPGZPHezmGbGqDq2a3JyuNSizvK4Y9Lml8ciMlw',
+                'pP4GILqHU90ARsWwDacf7NXA-K4wKSNjID7UPCg1OeY',
+                'VNdmB-C-9VWEKtbv2aCUMEoUguvAiflB7w9jfDnlqrI',
+                'poqUVw7TpPPd3CBNYnlj3KHES0qNfyCkgBI6fSrafIY',
+                'T_sVEmLwuG0ltVzM0r2Y4qw4NxfRY_ri2iPHyqglIPw',
+                'fSsTyX4ta8aMiPg317Svcj5If5-8fEl60lQrvRdf5wo',
+                'r2jPKaLJVNsXZ-98L9kSEeFKAf5EmdWkVrhMbn97mRU',
+                'PnhvZYB74HZlEn15eEBM3yFj_3KQs57_AaFRlqQ33xc',
+                'Z561VHN4ABzF-UI_f0_Y1-qqKR6ZuJA3WLQ52VD7HuQ',
+                '9knDY5YwQK4eoX8w0yUghuS2jImwZalP_Fh2AoymHTM',
+                'CCGhdFCTwHrOQRQsuwxUiDsIyyxR9i-lfxWXaPi41xE',
+                'tIoHgVLquFD99pXwYh9ZxfJxEnytbk6zD4BnSp1QqPs',
+                'DHUOvl04w7811Ldsxq97eSsocTl54XsfrEUuaFM3d5Y',
+                '_ViKIQy5mAkVac-CHPtgEFCSfWzksD9LSWk6R8Ne4h8',
+                'LXS3WDaRweLtSyneHSLHlxihfcn4O2_1Y4bUlZVyrJA',
+                'WRmG3fOcCFJkA1GTsoK0dvGkZ2cqyrDFfeXuDDh852c',
+                'uYp6ut04bSLlrES_r8ZnrNjPE7eXxNvs0mnIXepK9iA',
+                'ucMvPFnH6-0yzLVvwqS3dlCjICBFgV4W1j2G-xw3QgA',
+                '525bVETXbFyTHpZNi9F6kEekfzLMP_FvikTU6eiKenU',
+                'NdgMym5GzlSkmHJL6Z7MxtRPni8vhKWHj4NxbOIkj2M',
+                'eJRkW4nDF4HIEGv7v96adx0ljzUXvqVAInaeqZXu94s',
+                '1Nx5PAU5vb7OuaViR09owp66yfXmFl-lJhqYbbwsxQI',
+                'eX-JsBH9PoNFdpbvWSPb67hoazKfFpFiXFB-1YKz2sg',
+                'SjvRxo65SRGCRvhdbdtybxlcxY-FBvfgGf4_nxI-_Sk',
+                '8F19M92eYcINzQauvIfY3NXLCvHN9-ygCX2WsKLLsC8',
+                'auZJtK-9jikwGxQGHkyi4A_iSYqqOcwVqmls1_N2r7Y',
+                'gQkQ99mc0WVfWTq9NFsuJeuKKBRKhlZ9D3icyFAF90Q'
+            ];
+
+            return `https://arweave.net/${ALL_IMAGES[variation]}`;
+        }
+    </script>
+    <body>
+        <div class="lds-dual-ring-outer">
+            <div class="lds-dual-ring"></div>
+          </div>
+        <div id="cover"></div>
+        <div id="oona">
+            <div class="side-a">
+                <img
+                id="image1"
+                onload="loaded1()"
+                src="https://arweave.net/DdvGdMcpxkzu6pCWTedRVoIaYKIYy81xhXp6habUJzw"
+                />
+            </div>
+            <div class="side-b">
+                <img
+                    id="image2"
+                    onload="loaded2()"
+                    src=""
+                />
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function () {
+            document.getElementById('image2').src = getImageFromVariation();
+
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            
+            function adjustImageSize(imageSelector) {
+                if(width < height) {
+                    $(imageSelector).css({
+                        "width": width + "px",
+                        "height": "auto",
+                        "position": "relative"
+                    });
+                } else {
+                    $(imageSelector).css({
+                        "height": height + "px",
+                        "width": "auto",
+                        "position": "relative"
+                    });
+                    
+                    setTimeout(function() {
+                        let imgWidth = $(imageSelector).css("width");
+                        imgWidth = parseInt(imgWidth);
+                        if(imgWidth > width) {
+                            $(imageSelector).css({
+                                "width": width + "px",
+                                "height": "auto"
+                            });
+                        }
+                    }, 100);
+                }
+            }
+
+            adjustImageSize("#image1");
+            adjustImageSize("#image2");
+        });
+    </script>
+</html>
