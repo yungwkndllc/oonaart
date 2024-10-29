@@ -117,7 +117,7 @@
                 width: 110%;
                 background: #ffffff;
                 z-index: 1000;
-                position: fixed;
+                position: relative;
             }
 
             .lds-dual-ring-outer {
@@ -271,17 +271,17 @@
           </div>
         <div id="cover"></div>
         <div id="oona">
-            <div class="side-a">
+            <div class="side-b">
                 <img
-                id="image1"
-                onload="loaded1()"
+                id="image2"
+                onload="loaded2()"
                 src="https://arweave.net/VK9Rsp9RNGtz3KEkGpgpgabrxxOya7ofOBN9Vls0WtQ"
                 />
             </div>
-            <div class="side-b">
+            <div class="side-a">
                 <img
-                    id="image2"
-                    onload="loaded2()"
+                    id="image1"
+                    onload="loaded1()"
                     src=""
                 />
             </div>
@@ -289,7 +289,7 @@
     </body>
    <script>
         $(document).ready(function () {
-            document.getElementById('image2').src = getImageFromVariation();
+            document.getElementById('image1').src = getImageFromVariation();
 
             let width = window.innerWidth;
             let height = window.innerHeight;
