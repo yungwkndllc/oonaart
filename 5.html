@@ -32,11 +32,18 @@
             }
             #oona div {
                 position: absolute;
-                max-height: 100%;
+                max-height: 100vh; /* Update max-height */
+                max-width: 100vw;  /* Add max-width */
                 -webkit-backface-visibility: hidden;
                 display: flex;
                 justify-content: center;
                 width: 100%;
+            }
+            
+            img {
+                max-width: 100vw;    /* Add max-width constraint */
+                max-height: 100vh;   /* Add max-height constraint */
+                object-fit: contain; /* Ensure image maintains aspect ratio */
             }
             .side-a {
                 z-index: 100;
